@@ -12,3 +12,7 @@ class LoginPageLocators:
 class RegistrationPageLocators:
     NAME_INPUT = (By.XPATH, '//input[@name="firstName"]')
     SURNAME_INPUT = (By.XPATH,'//input[@name="lastName"]')
+    EMAIL_INPUT = (By.XPATH, '//input[@name="email"]')
+    PASSWORD_RP_INPUT = (By.XPATH,  '//input[@name="passwordConfirm"]')
+    PASSWORD_INPUT = (By.XPATH,  '//input[@name="password"]')
+    ADREESS_INPUT = (By.ID,'downshift-0-input')

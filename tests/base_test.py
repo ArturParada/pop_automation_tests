@@ -1,5 +1,6 @@
 import unittest
 from selenium import webdriver
+from time import sleep
 
 class BaseTest(unittest.TestCase):
 
@@ -9,4 +10,6 @@ class BaseTest(unittest.TestCase):
         self.driver.maximize_window()
 
     def tearDown(self):
+        sleep(20)
+
         self.driver.quit()

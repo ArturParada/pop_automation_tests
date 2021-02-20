@@ -10,7 +10,10 @@ from time import sleep
 
 valid_name = "Artur"
 valid_surname = "Kowalski"
-
+valid_email= 'asdasasdfsdfas@onet.pl'
+valid_password = "sadasdasd"
+valid_rp_password = valid_password
+valid_adreess = "Wiejska 7"
 class RegistrationPageTest(BaseTest):
 
 
@@ -22,9 +25,14 @@ class RegistrationPageTest(BaseTest):
         lp = LoginPage(self.driver)
         lp.click_register_btn()
 
-    def incorrect_name(self):
+    def test_incorrect_name(self):
         rp = RegistrationPage(self.driver)
         rp.fill_name(valid_name)
+        rp.fill_surname(valid_surname)
+        rp.fill_email(valid_email)
+        rp.fill_password(valid_password)
+        rp.fill_rp_password(valid_rp_password)
+        rp.fill_adreess(valid_adreess)
 
 
 

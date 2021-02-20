@@ -23,4 +23,18 @@ class RegistrationPage(BasePage):
         element = self.driver.find_element(*RegistrationPageLocators.SURNAME_INPUT)
         element.send_keys(surname)
 
-    def fill_
+    def fill_email(self, email):
+        element = self.driver.find_element(*RegistrationPageLocators.EMAIL_INPUT)
+        element.send_keys(email)
+
+    def fill_password(self,password):
+        element = self.driver.find_element(*RegistrationPageLocators.PASSWORD_INPUT)
+        element.send_keys(password)
+
+    def fill_rp_password(self,rp_password):
+        element = self.driver.find_element(*RegistrationPageLocators.PASSWORD_RP_INPUT)
+        element.send_keys(rp_password)
+
+    def fill_adreess(self,adreess):
+        element = self.driver.find_element(*RegistrationPageLocators.ADREESS_INPUT)
+        element.send_keys(adreess,Keys.RETURN)
