@@ -7,4 +7,8 @@ class HomePageLocators:
 
 
 class LoginPageLocators:
-    REGISTER_BTN = (By.XPATH '//button[@class="button logon-view__alternate-section-button"]')
+    REGISTER_BTN = (By.XPATH, '//button[@class="button logon-view__alternate-section-button"]')
+
+class RegistrationPageLocators:
+    NAME_INPUT = (By.XPATH, '//input[@name="firstName"]')
+    SURNAME_INPUT = (By.XPATH,'//input[@name="lastName"]')
