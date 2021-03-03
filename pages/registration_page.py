@@ -5,14 +5,13 @@ from selenium.webdriver.common.keys import Keys
 from locators import RegistrationPageLocators
 
 
+
 class RegistrationPage(BasePage):
 
     def _verify_page(self):
         print("Weryfikacja RegistartionPage")
-        # Tutaj będziemy weryfikować stronę
+
         wait = WebDriverWait(self.driver, 60)
-        # Wywołanie metody until na obiekcie WebDriverWait
-        # W efekcie otrzymamy element (jeśli warunek wystąpi)
         wait.until(EC.presence_of_element_located(RegistrationPageLocators.NAME_INPUT))
 
     def fill_name(self,name):
@@ -37,4 +36,28 @@ class RegistrationPage(BasePage):
 
     def fill_adreess(self,adreess):
         element = self.driver.find_element(*RegistrationPageLocators.ADREESS_INPUT)
-        element.send_keys(adreess,Keys.RETURN)
+        element.send_keys(adreess)
+
+
+    def phone_number(self,phone_number):
+        element = self.driver.find_element(*RegistrationPageLocators.PHONE)
+        element.send_keys(phone_number)
+
+    def zip_code (self,zip_code):
+        element = self.driver.find_element(*RegistrationPageLocators.ZIP_CODE_INPUT)
+        element.send_keys(zip_code)
+
+    def town_name(self,town):
+        element = self.driver.find_element(*RegistrationPageLocators.TOWN_INPUT)
+        element.send_keys(town)
+
+    def choose_province(self,province):
+        self.driver.find_element(*RegistrationPageLocators.PROVINCE_INPUT).click()
+        province_options = self.driver.find_elements(*RegistrationPageLocators.PROVINCE_OPTION)
+        for option in province_options:
+            provinces = option.find_element_by_tag_name('option')
+            print(provinces.get_attribute("innerText"))
+            if provinces.get_attribute("innerText") == province:
+
+                provinces.click()
+                break

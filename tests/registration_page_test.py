@@ -13,7 +13,12 @@ valid_surname = "Kowalski"
 valid_email= 'asdasasdfsdfas@onet.pl'
 valid_password = "sadasdasd"
 valid_rp_password = valid_password
-valid_adreess = "Wiejska 7"
+valid_adreess = "Wiejska "
+valid_phone_number = "123456"
+valid_zip_code = '90-333'
+valid_town = 'Łódź'
+valid_province = 'Łódzkie'
+
 class RegistrationPageTest(BaseTest):
 
 
@@ -33,6 +38,11 @@ class RegistrationPageTest(BaseTest):
         rp.fill_password(valid_password)
         rp.fill_rp_password(valid_rp_password)
         rp.fill_adreess(valid_adreess)
+        rp.phone_number(valid_phone_number)
+        rp.zip_code(valid_zip_code)
+        rp.town_name(valid_town)
+        rp.choose_province(valid_province)
+
 
 
 

@@ -16,3 +16,8 @@ class RegistrationPageLocators:
     PASSWORD_RP_INPUT = (By.XPATH,  '//input[@name="passwordConfirm"]')
     PASSWORD_INPUT = (By.XPATH,  '//input[@name="password"]')
     ADREESS_INPUT = (By.ID,'downshift-0-input')
+    PHONE = (By.XPATH, '//input[@name="phones[0].subscriberNumber"]')
+    ZIP_CODE_INPUT = (By.XPATH,'//input[@name="zipCode"]')
+    TOWN_INPUT = (By.XPATH, '//input[@name="city"]')
+    PROVINCE_INPUT = (By.XPATH, '//select[@name="stateCode"]')
+    PROVINCE_OPTION = (By.XPATH, '//select[@name="stateCode"]/option')
