@@ -11,8 +11,6 @@ from locators import RegistrationPageLocators
 class RegistrationPage(BasePage):
 
     def _verify_page(self):
-        print("Weryfikacja RegistartionPage")
-
         wait = WebDriverWait(self.driver, 60)
         wait.until(EC.presence_of_element_located(RegistrationPageLocators.NAME_INPUT))
 
@@ -64,9 +62,17 @@ class RegistrationPage(BasePage):
                 break
 
     def verify_visible_errors(self,error_texts):
-        pass
+        error_texts = list(error_texts)
+        error_messages = self.driver.find_element(*RegistrationPageLocators.ERROR_MESSAGES)
+        visible_error_messages = []
+        for error in error_messages:
+            if error.is_displayed():
+                visible_error_messages.append(error)
 
-
+        error_text_fact = []
+        for i in range(len(visible_error_messages)):
+            error_text_fact.append(visible_error_messages[i].text)
+        assert error_texts == error_text_fact
 
     def click_zl(self):
-        self.driver.find_element(*RegistrationPageLocators.ZL_BUTTON).click()
+        self.driver.find_element(RegistrationPageLocators.ZL_BUTTON).cliclk()

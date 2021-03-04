@@ -11,7 +11,7 @@ from time import sleep
 valid_name = "Artur"
 valid_surname = "Kowalski"
 valid_email= 'asdasasdfsdfas@onet.pl'
-valid_password = "sadasdasd"
+valid_password = "Artur12345@"
 valid_rp_password = valid_password
 valid_adreess = "Wiejska "
 valid_phone_number = "123456"
@@ -38,10 +38,11 @@ class RegistrationPageTest(BaseTest):
         rp.fill_password(valid_password)
         rp.fill_rp_password(valid_rp_password)
         rp.fill_adreess(valid_adreess)
-        rp.phone_number(valid_phone_number)
+        #rp.phone_number(valid_phone_number)
         rp.zip_code(valid_zip_code)
         rp.town_name(valid_town)
         rp.choose_province(valid_province)
+        rp.verify_visible_errors(["To pole jest obowiązkowe."])
         rp.click_zl()
 
 
