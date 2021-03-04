@@ -8,4 +8,4 @@ class BasePage():
         self._verify_page()
 
     def _verify_page(self):
-        print("Weryfikacja z BasePage")
+        pass

@@ -17,7 +17,7 @@ valid_adreess = "Wiejska "
 valid_phone_number = "123456"
 valid_zip_code = '90-333'
 valid_town = 'Łódź'
-valid_province = 'Łódzkie'
+valid_province = 'ŁÓDZKIE'
 
 class RegistrationPageTest(BaseTest):
 
@@ -42,6 +42,7 @@ class RegistrationPageTest(BaseTest):
         rp.zip_code(valid_zip_code)
         rp.town_name(valid_town)
         rp.choose_province(valid_province)
+        rp.click_zl()
 
 
 

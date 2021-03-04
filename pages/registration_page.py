@@ -1,3 +1,5 @@
+from selenium.webdriver.support.select import Select
+
 from pages.base_pages import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -52,12 +54,19 @@ class RegistrationPage(BasePage):
         element.send_keys(town)
 
     def choose_province(self,province):
-        self.driver.find_element(*RegistrationPageLocators.PROVINCE_INPUT).click()
-        province_options = self.driver.find_elements(*RegistrationPageLocators.PROVINCE_OPTION)
-        for option in province_options:
-            provinces = option.find_element_by_tag_name('option')
-            print(provinces.get_attribute("innerText"))
-            if provinces.get_attribute("innerText") == province:
 
-                provinces.click()
+        self.driver.find_element(*RegistrationPageLocators.PROVINCE_INPUT).click()
+        province_options=self.driver.find_element(*RegistrationPageLocators.PROVINCE_INPUT)
+
+        for option in province_options.find_elements_by_tag_name('option'):
+            if option.get_attribute("innerText")== province:
+                option.click()
                 break
+
+    def verify_visible_errors(self,error_texts):
+        pass
+
+
+
+    def click_zl(self):
+        self.driver.find_element(*RegistrationPageLocators.ZL_BUTTON).click()
