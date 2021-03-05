@@ -42,7 +42,7 @@ class RegistrationPageTest(BaseTest):
         rp.zip_code(valid_zip_code)
         rp.town_name(valid_town)
         rp.choose_province(valid_province)
-        rp.verify_visible_errors(["To pole jest obowiązkowe."])
+        rp.verify_visible_errors(1,["To pole jest obowiązkowe."])
         rp.click_zl()
 
 

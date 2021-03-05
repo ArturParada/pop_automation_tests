@@ -61,13 +61,14 @@ class RegistrationPage(BasePage):
                 option.click()
                 break
 
-    def verify_visible_errors(self,error_texts):
+    def verify_visible_errors(self,number_of_errors,error_texts) :
         error_texts = list(error_texts)
         error_messages = self.driver.find_element(*RegistrationPageLocators.ERROR_MESSAGES)
         visible_error_messages = []
         for error in error_messages:
             if error.is_displayed():
                 visible_error_messages.append(error)
+        assert len(visible_error_messages) == number_of_errors
 
         error_text_fact = []
         for i in range(len(visible_error_messages)):
