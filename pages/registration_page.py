@@ -1,3 +1,5 @@
+from time import sleep
+
 from selenium.webdriver.support.select import Select
 
 from pages.base_pages import BasePage
@@ -63,7 +65,7 @@ class RegistrationPage(BasePage):
 
     def verify_visible_errors(self,number_of_errors,error_texts) :
         error_texts = list(error_texts)
-        error_messages = self.driver.find_element(*RegistrationPageLocators.ERROR_MESSAGES)
+        error_messages = self.driver.find_elements(*RegistrationPageLocators.ERROR_MESSAGES)
         visible_error_messages = []
         for error in error_messages:
             if error.is_displayed():
@@ -76,4 +78,5 @@ class RegistrationPage(BasePage):
         assert error_texts == error_text_fact
 
     def click_zl(self):
-        self.driver.find_element(RegistrationPageLocators.ZL_BUTTON).cliclk()
+        element =self.driver.find_element(*RegistrationPageLocators.ZL_BUTTON)
+        element.send_keys(Keys.RETURN)

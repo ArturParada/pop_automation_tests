@@ -20,7 +20,6 @@ class RegistrationPageLocators:
     ZIP_CODE_INPUT = (By.XPATH,'//input[@name="zipCode"]')
     TOWN_INPUT = (By.XPATH, '//input[@name="city"]')
     PROVINCE_INPUT = (By.XPATH, '//select[@name="stateCode"]')
-    PROVINCE_OPTION = (By.XPATH, '//select[@name="stateCode"]/option')
-    ERROR_MESSAGES = (By.XPATH, '//div[@class="form-input__error"]/text()')
+    ERROR_MESSAGES = (By.XPATH, '//div[@class="form-input__error"]/span')
     ZL_BUTTON = (By.XPATH,'//button[@class="button"]')
 
