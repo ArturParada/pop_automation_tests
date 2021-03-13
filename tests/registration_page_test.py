@@ -1,4 +1,6 @@
 import unittest
+import pytest
+import allure
 
 from pages.login_page import LoginPage
 from tests.base_test import BaseTest
@@ -30,23 +32,23 @@ class RegistrationPageTest(BaseTest):
         lp = LoginPage(self.driver)
         lp.click_register_btn()
 
-    @unittest.skip("skip")
-    def test_without_email_and_wrong_zip_code(self):
+    @allure.testcase("without_email_phone_number_adreess")
+    def test_without_email_phone_number_adreess(self):
         rp = RegistrationPage(self.driver)
         rp.fill_name(valid_name)
         rp.fill_surname(valid_surname)
         #rp.fill_email(valid_email)
         rp.fill_password(valid_password)
         rp.fill_rp_password(valid_rp_password)
-        rp.fill_adreess(valid_adreess)
-        rp.phone_number(valid_phone_number)
-        rp.zip_code("adadasdadsf")
+        #rp.fill_adreess(valid_adreess)
+        #rp.phone_number(valid_phone_number)
+        rp.zip_code(valid_zip_code)
         rp.town_name(valid_town)
         rp.choose_province(valid_province)
         rp.click_zl()
-        rp.verify_visible_errors(2, ["To pole jest obowiązkowe.","Nieprawidłowy kod pocztowy"])
+        rp.verify_visible_errors(3, ["To pole jest obowiązkowe.","To pole jest obowiązkowe.","To pole jest obowiązkowe.",])
 
-
+    @allure.testcase("without_phone_number")
     def test_without_phone_number(self):
         rp = RegistrationPage(self.driver)
         rp.fill_name(valid_name)
@@ -62,7 +64,7 @@ class RegistrationPageTest(BaseTest):
         rp.click_zl()
         rp.verify_visible_errors(1,["To pole jest obowiązkowe."])
 
-    @unittest.skip("skip")
+    @allure.testcase("test_without_email")
     def test_without_email(self):
         rp = RegistrationPage(self.driver)
         rp.fill_name(valid_name)
@@ -78,7 +80,7 @@ class RegistrationPageTest(BaseTest):
         rp.click_zl()
         rp.verify_visible_errors(1, ["To pole jest obowiązkowe."])
 
-    @unittest.skip("skip")
+    @allure.testcase("without_password")
     def test_without_password(self):
         rp = RegistrationPage(self.driver)
         rp.fill_name(valid_name)
@@ -94,7 +96,7 @@ class RegistrationPageTest(BaseTest):
         rp.click_zl()
         rp.verify_visible_errors(1,["To pole jest obowiązkowe."])
 
-    @unittest.skip("skip")
+    @allure.testcase("without_password_and_rppassword")
     def test_without_password_and_rppassword(self):
         rp = RegistrationPage(self.driver)
         rp.fill_name(valid_name)
