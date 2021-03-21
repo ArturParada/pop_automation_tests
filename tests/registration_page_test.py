@@ -62,7 +62,7 @@ class RegistrationPageTest(BaseTest):
         rp.click_zl()
         rp.verify_visible_errors(3, ["To pole jest obowiązkowe.","To pole jest obowiązkowe.","To pole jest obowiązkowe.",])
 
-    @unittest.skip("Pomijam")
+
     @allure.testcase("without_phone_number")
     def test_without_phone_number(self):
         rp = RegistrationPage(self.driver)
@@ -79,7 +79,7 @@ class RegistrationPageTest(BaseTest):
         rp.click_zl()
         rp.verify_visible_errors(1,["To pole jest obowiązkowe."])
 
-    @unittest.skip("Pomijam")
+
     @allure.testcase("test_without_email")
     def test_without_email(self):
         rp = RegistrationPage(self.driver)
@@ -96,7 +96,7 @@ class RegistrationPageTest(BaseTest):
         rp.click_zl()
         rp.verify_visible_errors(1, ["To pole jest obowiązkowe."])
 
-    @unittest.skip("Pomijam")
+
     @allure.testcase("without_password")
     def test_without_password(self):
         rp = RegistrationPage(self.driver)
@@ -113,7 +113,7 @@ class RegistrationPageTest(BaseTest):
         rp.click_zl()
         rp.verify_visible_errors(1,["To pole jest obowiązkowe."])
 
-    @unittest.skip("Pomijam")
+
     @allure.testcase("without_password_and_rppassword")
     def test_without_password_and_rppassword(self):
         rp = RegistrationPage(self.driver)
